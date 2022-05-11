@@ -1,4 +1,4 @@
-## BIOL1555 Final Project: Lindsey Ross's code for week 2 ##
+## BIOL1555 Final Project: Lindsey Ross's code ##
 # Plotting age distributions for the 'at risk groups' we identified:
 #   HEADACHE ~ FEMALE + PFIZER
 #   PYREXIA ~ MALE + MODERNA
