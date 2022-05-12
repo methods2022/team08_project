@@ -1,7 +1,7 @@
-# Methods 2022 Final Project
 ## Analyzing the Correlation Between Sex, Vaccine Brand, and Adverse Events After COVID-19 Vaccination
 ## Team 08: Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, Ziyin Li
 
+### Project Overview
 _add blurb about project here_
 
 | Table of Contents |
