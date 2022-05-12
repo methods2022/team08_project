@@ -1,4 +1,4 @@
-## PHP2561 Final Project: Anusha Kumar's code ##
+#### PHP2561 Final Project: Anusha Kumar's code ####
 
 # Imported Packages!
 using Plots, StatsPlots
