@@ -1,5 +1,5 @@
 # Methods 2022 Final Project
-# Team 08: Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, Ziyin Li
+## Team 08: Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, Ziyin Li
 ## Analyzing the Correlation Between Sex, Vaccine Brand, and Adverse Events After COVID-19 Vaccination
 
 _add blurb about project here_
