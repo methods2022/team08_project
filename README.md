@@ -2,9 +2,8 @@
 ## Team 08: Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, Ziyin Li
 
 ### Project Overview
-This repository contains code used to analyze COVID-19 Data from VAERS (Vaccine Adverse Event Reporting System). The specfic covariates used to analyze COVID-19 data in our project are identified, such as sex, vaccine brand (Moderna and Pfizer vaccines), and the top three adverse events. We are able to assess whether a significant correlation exists among these three variables. The additional examination of other covariates such as age and onset data helps in understanding the onset of symptoms associated with COVID-19 vaccination. Such information is useful for medical professionals and vaccine manufacturers to understand how to better market their vaccines.
+This repository contains code used to analyze COVID-19 Data from VAERS (Vaccine Adverse Event Reporting System). The specfic covariates used to analyze COVID-19 data in our project are identified, such as sex, vaccine brand (Moderna and Pfizer vaccines), and the top three adverse events. We are able to assess whether a significant correlation exists among these three variables. The additional examination of other covariates such as age and onset data helps in understanding the onset of symptoms associated with COVID-19 vaccination. Such information is useful for medical professionals and vaccine manufacturers to understand how to better market their vaccines, and may be useful for machine learning systems in the future.
 
-_add blurb about project here_
 
 | Table of Contents |
 | ----------------- |
