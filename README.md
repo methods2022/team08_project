@@ -10,8 +10,9 @@ This repository contains code used to analyze 2021 COVID-19 Data from VAERS (Vac
 | [1. Introduction](#introduction) |
 | [2. Getting Started](#getting-started) |
 | [3. Instructions for Use](#instructions-for-use) |
-| [4. Contributions](#contributions) |
-| [5. Future Directions](#future-directions) |
+| [4. Code Files/Descriptions](#code-files/descriptions) |
+| [5. Contributions](#contributions) |
+| [6. Future Directions](#future-directions) |
 
 ### Introduction
 - state what project does
@@ -28,10 +29,19 @@ Include any essential instructions for using the project
 ### Instructions for Use
 Describe intermediate and output files
 
-### Contributions
-Name the creators of the project and what we each contributed
+### Code Files/Descriptions
+Include brief write-up/explanations of the coding files and/or output
 
-- "Thank you to..."
+### Contributions
+Thank you to Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, and Ziyin Li for all contributions. 
+
+Our contributions to the project are outlined below:
+
+- Adeline Schwartz:
+- Anusha Kumar:
+- Connor Thropp:
+- Lindsey Ross:
+- Ziyin Li:
 
 ### Future Directions
 Next steps/future plans for the project
