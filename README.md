@@ -10,8 +10,9 @@ This repository contains code used to analyze 2021 COVID-19 Data from VAERS (Vac
 | [1. Introduction](#introduction) |
 | [2. Getting Started](#getting-started) |
 | [3. Instructions for Use](#instructions-for-use) |
-| [4. Contributions](#contributions) |
-| [5. Future Directions](#future-directions) |
+| [4. Code Files/Descriptions](#code-files/descriptions) |
+| [5. Contributions](#contributions) |
+| [6. Future Directions](#future-directions) |
 
 ### Introduction
 - state what project does
@@ -27,6 +28,9 @@ Include any essential instructions for using the project
 
 ### Instructions for Use
 Describe intermediate and output files
+
+### Code Files/Descriptions
+Include brief descriptions of code files and/or plots
 
 ### Contributions
 Name the creators of the project and what we each contributed
