@@ -1,4 +1,4 @@
-## Analyzing the Correlation Between Sex, Vaccine Brand, and Adverse Events After COVID-19 Vaccination
+## Analysis of the Correlation Between Sex, Vaccine Brand, and Adverse Events After COVID-19 Vaccination Using VAERS Datasets
 ## Team 08: Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, Ziyin Li
 
 ### Project Overview
