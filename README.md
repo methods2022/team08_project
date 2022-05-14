@@ -42,7 +42,7 @@ This Julia script tabulates the data and creates a formatted csv file that allow
 - Output files `boxplot.png` and `scatter.png`
 
 ### Contributions
-Thank you to Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, and Ziyin Li for all contributions. 
+Our contributions to this project are outlined below:
 
 - Adeline Schwartz:
 - Anusha Kumar: `project_counts_table.jl`, `updated_project_counts.csv`, `numdays_boxplots_scatterplots.jl`, `boxplot.png`, and `scatter.png`
