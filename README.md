@@ -44,8 +44,6 @@ This Julia script tabulates the data and creates a formatted csv file that allow
 ### Contributions
 Thank you to Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, and Ziyin Li for all contributions. 
 
-Our contributions to the project are outlined below:
-
 - Adeline Schwartz:
 - Anusha Kumar: `project_counts_table.jl`, `updated_project_counts.csv`, `numdays_boxplots_scatterplots.jl`, `boxplot.png`, and `scatter.png`
 - Connor Thropp:
