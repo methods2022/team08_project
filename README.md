@@ -31,7 +31,7 @@ Describe intermediate and output files
 
 ### Code Files/Descriptions
 
-Include brief write-up/explanations of the coding files and/or output
+Include write-ups/explanations of the coding files and/or output
 
 - Input file `project_counts_table.jl`
 - Output file `updated_project_counts.csv`
