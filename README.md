@@ -27,7 +27,7 @@ Include any essential instructions for using the project
 - **e.g. SPECIFY WHERE TO FIND THE INPUT DATA (URL for VAERS)**
 
 ### Instructions for Use
-Describe intermediate and output files
+Describe intermediate and output files (we can describe Ziyin's input files in this section)
 
 ### Code Files/Descriptions
 
