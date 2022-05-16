@@ -99,7 +99,7 @@ function main()
                     female_moderna_pyrexia_dict[age] += 1
                 end
             end
-        #######################################################################
+        ########################################################################
     ## MALE MODERNA FATIGUE
         elseif sex == "M" && brand[1:2] == "MO" && symptom =="Fatigue"
             if age ==""
