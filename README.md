@@ -7,27 +7,17 @@ This repository contains code used to analyze 2021 COVID-19 Data from VAERS (Vac
 
 | Table of Contents |
 | ----------------- |
-| [1. Introduction](#introduction) |
-| [2. Getting Started](#getting-started) |
-| [3. Instructions for Use](#instructions-for-use) |
-| [4. Code Files/Descriptions](#code-filesdescriptions) |
-| [5. Contributions](#contributions) |
-| [6. Future Directions](#future-directions) |
-
-### Introduction
-- state what project does
-- state goals of the project
-- language used
-- list  most useful/innovative/noteworthy features
-- describe any key concepts important to the user’s understanding
-
+| [1. Getting Started](#getting-started) |
+| [2. Code Files/Descriptions](#code-filesdescriptions) |
+| [3. Contributions](#contributions) |
+| [4. Future Directions](#future-directions) |
 
 ### Getting Started
-Include any essential instructions for using the project
-- **e.g. SPECIFY WHERE TO FIND THE INPUT DATA (URL for VAERS)**
-
-### Instructions for Use
-Describe intermediate and output files (we can describe Ziyin's input files in this section)
+- The data for this project is downloadable from [VAERS](https://vaers.hhs.gov/data/datasets.html)
+  - From this site, download three CSV files from the year 2021: VAERS DATA, VAERS Symptoms, and VAERS Vaccine
+  - These three files will serve as the input files for the data preprocessing code: **Insert names of Ziyin's files here**
+- This project was primarily coded in the Julia programming language, with the exception of the code used to create the correlation matrix and heatmap (**Insert names of Ziyin's files here**) which was written in Python
+- Julia Packages required: CSV.jl, DataFrames.jl, Plots.jl, StatsPlots.jl, DelimitedFiles.jl
 
 ### Code Files/Descriptions
 
