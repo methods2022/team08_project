@@ -26,4 +26,3 @@ function onsite_grouped_percentages()
 end
 
 onsite_grouped_percentages()
-
