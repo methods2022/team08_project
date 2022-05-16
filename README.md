@@ -13,10 +13,10 @@ This repository contains code used to analyze 2021 COVID-19 Data from VAERS (Vac
 | [4. Future Directions](#future-directions) |
 
 ### Getting Started
-- The data for this project is downloadable from [VAERS](https://vaers.hhs.gov/data/datasets.html)
+- The data required for this project is downloadable from [VAERS](https://vaers.hhs.gov/data/datasets.html)
   - From this site, download three CSV files from the year 2021: VAERS DATA, VAERS Symptoms, and VAERS Vaccine
-  - These three files will serve as the input files for the data preprocessing code: **Insert names of Ziyin's files here**
-- This project was primarily coded in the Julia programming language, with the exception of the code used to create the correlation matrix and heatmap (**Insert names of Ziyin's files here**) which was written in Python
+  - These three files will serve as the input files for the data preprocessing code: `vaers_data_preprocess.jl` and `vaers_onsite_preprocess.jl`
+- This project was primarily coded in the Julia programming language, with the exception of the code used to create the correlation matrix and heatmap (`vaers_corr.py`) which was written in Python
 - Julia Packages required: CSV.jl, DataFrames.jl, Plots.jl, StatsPlots.jl, DelimitedFiles.jl
 
 ### Code Files/Descriptions
