@@ -1,0 +1,13 @@
+Results
+The mean age for FEMALE_MODERNA_FATIGUE is: 52.7
+The mean age for FEMALE_MODERNA_HEADACHE is: 51.76
+The mean age for FEMALE_MODERNA_PYREXIA is: 51.3
+The mean age for MALE_MODERNA_FATIGUE is: 54.58
+The mean age for MALE_MODERNA_HEADACHE is: 51.85
+The mean age for MALE_MODERNA_PYREXIA is: 53.19
+The mean age for FEMALE_PFIZER_FATIGUE is: 48.0
+The mean age for FEMALE_PFIZER_HEADACHE is: 47.27
+The mean age for FEMALE_PFIZER_PYREXIA is: 46.28
+The mean age for MALE_PFIZER_FATIGUE is: 48.04
+The mean age for MALE_PFIZER_HEADACHE is: 44.96
+The mean age for MALE_PFIZER_PYREXIA is: 45.77
