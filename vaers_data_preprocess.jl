@@ -3,18 +3,10 @@ using DataFrames
 using CSV
 
 function main()
-    # Note: set run_local to false when running on VNC
-    run_local = true
     # define file names
-    if run_local
-        vaersvax = "./data/2021VAERSVAX.csv"
-        vaerssymptoms = "./data/2021VAERSSYMPTOMS.csv"
-        vaersdata = "./data/2021VAERSDATA.csv"
-    else
-        vaersvax = "/gpfs/data/biol1555/0_shared/0_data/vaers/2021VAERSVAX.csv"
-        vaerssymptoms = "/gpfs/data/biol1555/0_shared/0_data/vaers/2021VAERSSYMPTOMS.csv"
-        vaersdata = "/gpfs/data/biol1555/0_shared/0_data/vaers/2021VAERSDATA.csv"
-    end
+    vaersvax = "/gpfs/data/biol1555/0_shared/0_data/vaers/2021VAERSVAX.csv"
+    vaerssymptoms = "/gpfs/data/biol1555/0_shared/0_data/vaers/2021VAERSSYMPTOMS.csv"
+    vaersdata = "/gpfs/data/biol1555/0_shared/0_data/vaers/2021VAERSDATA.csv"
 
     # load 2021VAERSVAX.csv as dataframe called df_vax (vaccine info)
     df_vax = DataFrame(CSV.File(vaersvax))
