@@ -3,7 +3,7 @@ using CSV
 using DataFrames
 
 # get grouped counts and percentages for sex:
-function onsite_grouped_percentages()
+function onsite_grouped_percentages_sex()
     # read the onsite processed output csv into dataframe
     data = "onsite_processed_data_output.csv"
     df = DataFrame(CSV.File(data))
@@ -25,10 +25,10 @@ function onsite_grouped_percentages()
     CSV.write("onsite_grouped_percentages_output.csv", grouped_counts)
 end
 
-# onsite_grouped_percentages()
+onsite_grouped_percentages_sex()
 
 # get grouped counts and percentages for vaccine brand:
-function onsite_grouped_percentages()
+function onsite_grouped_percentages_vax()
     # read the onsite processed output csv into dataframe
     data = "onsite_processed_data_output.csv"
     df = DataFrame(CSV.File(data))
@@ -50,36 +50,6 @@ function onsite_grouped_percentages()
     CSV.write("onsite_grouped_percentages_vax.csv", grouped_counts)
 end
 
-onsite_grouped_percentages()
+onsite_grouped_percentages_vax()
 
 
-
-using StatsPlots
-
-# generate grouped barplots for each sex using the percentages data:
-function grouped_barplots()
-    # read the percentages csv back into a dataframe
-    fractions = "grouped_percentages_output.csv"
-    df = DataFrame(CSV.File(fractions))
-
-    # change group names for vaccine brand
-    df.VAX_MANU .= replace.(df.VAX_MANU, "MODERNA" => "Moderna", "PFIZER\\BIONTECH" => "Pfizer")
-
-    # generate grouped barplot for females
-    df_F = filter(:SEX => n -> n==("F"), df)
-    plot_F = @df df_F groupedbar(:VAX_MANU, :count, group=:SYMPTOM, bar_width=0.67, c=[:purple :skyblue :orange],
-    lw=0, legend=:bottomright, xlabel="Vaccine brand", ylabel="Fraction of reports", 
-    title = "Fraction of adverse events grouped by\nvaccine brand and symptom for females")
-    # save plot
-    savefig(plot_F, "julia_plot_F.png")
-
-    # generate grouped barplot for males
-    df_M = filter(:SEX => n -> n==("M"), df)
-    plot_M = @df df_M groupedbar(:VAX_MANU, :count, group=:SYMPTOM, bar_width=0.67, c=[:purple :skyblue :orange],
-    lw=0, legend=:bottomright, xlabel="Vaccine brand", ylabel="Fraction of reports", 
-    title = "Fraction of adverse events grouped by\nvaccine brand and symptom for males")
-    # save plot
-    savefig(plot_M, "julia_plot_M.png")
-end
-
-# grouped_barplots()
