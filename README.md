@@ -64,4 +64,5 @@ Our contributions to this project are outlined below:
 - Ziyin Li:
 
 ### Future Directions
-Next steps/future plans for the project
+This study suggests that continuing to research the connection between adverse events and the at risk populations we identified will be possible using more powerful computational methods, such as machine learning. The findings from further research in this field will help improve vaccines, market them to a wider audience, and address feelings of vaccine hesitancy in the population.
+
