@@ -3,23 +3,6 @@ using CSV
 using DataFrames
 using StatsPlots
 
-# get grouped counts:
-function grouped_counts()
-    vaers = "final_processed_data_output.csv"
-    df = DataFrame(CSV.File(vaers))
-    # drop rows with unknown sex info (SEX is 'U')
-    df = filter(:SEX => n -> (n==("F") || n==("M")), df)
-    # calculate counts for each sex-vax-symptom group
-    sex_vax_symp_counts = combine(groupby(df, [:SEX, :VAX_MANU, :SYMPTOM]), nrow => :count)
-    CSV.write("grouped_counts_output.csv", sex_vax_symp_counts)
-end
-
-# grouped_counts()
-
-
-using CSV
-using DataFrames
-
 # get grouped counts and percentages:
 function grouped_percentages()
     # read the processed output csv into dataframe
@@ -41,7 +24,7 @@ function grouped_percentages()
     CSV.write("grouped_percentages_output.csv", grouped_counts)
 end
 
-# grouped_percentages()
+grouped_percentages()
 
 
 # generate grouped barplots for each sex using the percentages data:
