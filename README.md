@@ -1,5 +1,5 @@
 ## Correlating Sex, Vaccine Brand, and Adverse Events After COVID-19 Vaccination
-#### Team 08: Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, Ziyin Li
+### Team 08: Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, Ziyin Li
 
 ### Project Overview
 This repository contains code used to analyze data from VAERS (Vaccine Adverse Event Reporting System). Specifically, this code was written to analyze the relationship between systemic adverse events that were reported after COVID-19 vaccination and several variables from the 2021 datasets. The covariates focused on in our analysis were sex and vaccine brand (Moderna and Pfizer). The goal of the project was to assess whether any significant correlations exist between these two variables and the top three most frequently reported adverse events post-COVID-19 vaccination. The additional examination of other covariates, such as age and onset time (the number of days between vaccination and the onset of symptoms), helps in understanding how the symptoms associated with COVID-19 vaccination manifest. Our results can assist medical professionals/vaccine manufacturers in understanding how to better market their vaccines, and may be useful for machine learning systems in the future.
