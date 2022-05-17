@@ -1,9 +1,8 @@
-## Analysis of the Correlation Between Sex, Vaccine Brand, and Adverse Events After COVID-19 Vaccination Using VAERS Datasets
+# Analysis of the Correlation Between Sex, Vaccine Brand, and Adverse Events After COVID-19 Vaccination Using VAERS Datasets
 ## Team 08: Adeline Schwartz, Anusha Kumar, Connor Thropp, Lindsey Ross, Ziyin Li
 
 ### Project Overview
-This repository contains code used to analyze 2021 COVID-19 Data from VAERS (Vaccine Adverse Event Reporting System). The covariates used to analyze COVID-19 data in our project are identified, such as sex, vaccine brand (Moderna and Pfizer vaccines), and the top three adverse events. We are able to assess whether a significant correlation exists among these three variables. The additional examination of other covariates such as age and onset data helps in understanding the onset of symptoms associated with COVID-19 vaccination. This assists with determining relationships between onset interval and range of ages for Males/Females given Moderna/Pfizer. We are also able to understand the urgency associated with the top three adverse events and their relationship with age. Our results can assist medical professionals/vaccine manufacturers in understanding how to better market their vaccines, and may be useful for machine learning systems in the future.
-
+This repository contains code used to analyze data from VAERS (Vaccine Adverse Event Reporting System). Specifically, this code was written to analyze the relationship between systemic adverse events that were reported after COVID-19 vaccination and several variables from the 2021 datasets. The covariates focused on in our analysis were sex and vaccine brand (Moderna and Pfizer). The goal of the project was to assess whether any significant correlations exist between these two variables and the top three most frequently reported adverse events post-COVID-19 vaccination. The additional examination of other covariates, such as age and onset time (the number of days between vaccination and the onset of symptoms), helps in understanding how the symptoms associated with COVID-19 vaccination manifest. Our results can assist medical professionals/vaccine manufacturers in understanding how to better market their vaccines, and may be useful for machine learning systems in the future.
 
 | Table of Contents |
 | ----------------- |
@@ -21,8 +20,6 @@ This repository contains code used to analyze 2021 COVID-19 Data from VAERS (Vac
 - Python packages required: pandas, seasborn
 
 ### Code Files/Descriptions
-
-Include write-ups/explanations of the coding files and/or output
 
 1. `vaers_data_preprocess.jl` 
 
@@ -71,6 +68,21 @@ Include write-ups/explanations of the coding files and/or output
 
   This Julia script constructs two plots: boxplot and scatter plot. Both plots display a sample over onset days vs age (in years). Columns 1, 3, 5, 6, and 9 are used (id, vaccine, age, sex, and onset days). The id column **must be unique** to each subject. The helper function is defined: `is_valid_numerical` and `main` routine. The `main` function (for data importing, data cleaning, and plotting) is defined and run. The data is imported (the input file). The plot options and coding are defined; labels for the plot are defined to map the name of the sex and vaccine. The plots are saved as box plots and scatter plots with the customs plotting function, `make_plot`. The rows are discarded so every row has an unique id. The data was parsed row wise. A valid data row would have non-empty entries for age, onset, sex, vaccine. Vaccine and sex had to have a key in one of the codings. Invalid rows would be discarded.
 
+7. `at_risk_group_plots.jl`
+
+- Input file `final_processed_data_output.csv`
+- Output files `fatigue_at_risk_plot.png`, `headache_at_risk_plot.png`, `pyrexia_at_risk_plot.png`
+
+  This Julia script constructs 6 histograms from the preprocessed data (input file). Each output file contains 2 histograms and focuses on the ages of people who reported experiencing the top three most frequently observed adverse event symptoms. One of the histograms in each symptom-specific file shows the age distribution of everyone who reported that symptom, while the other histogram shows the age distribution of everyone who reported that symptom ***and*** is a member of the at-risk population that we identified for that symptom.
+  
+ 8. `onset_time_visualizations.jl`
+ 
+ - Input file `onsite_processed_data_output.csv`
+ - Output file `onset_time_v_sex_and_manu.png`
+
+  This Julia script
+
+
 
 (last) `vaers_corr.py`
 
@@ -86,9 +98,8 @@ Our contributions to this project are outlined below:
 - Adeline Schwartz:
 - Anusha Kumar: `project_counts_table.jl`, `updated_project_counts.csv`, `numdays_boxplots_scatterplots.jl`, `boxplot.png`, and `scatter.png`
 - Connor Thropp:
-- Lindsey Ross:
+- Lindsey Ross: `at_risk_group_plots.jl`, `fatigue_at_risk_plot.png`, `headache_at_risk_plot.png`, `pyrexia_at_risk_plot.png`, `onset_time_visualizations.jl`, `onset_time_v_sex_and_manu.png`
 - Ziyin Li: `vaers_data_preprocess.jl`, `symptoms_counts_output.csv`, `final_processed_data_output.csv`, `vaers_eda.jl`, `grouped_percentages_output.csv`, `vax_F.png`, `vax_M.png`, `vaers_onsite_preprocess.jl`, `onsite_processed_data_output.csv`, `vaers_onsite_eda.jl`, `onsite_grouped_percentages_output.csv`, `vaers_corr.py`, and `corr_3_one-hot.png`
 
 ### Future Directions
-This study suggests that continuing to research the connection between adverse events and the at risk populations we identified will be possible using more powerful computational methods, such as machine learning. The findings from further research in this field will help improve vaccines, market them to a wider audience, and address feelings of vaccine hesitancy in the population. In turn, this will help the public make more informed decisions about their own safety and the safety of their peers.
-
+Continuing to research the connection between adverse reactions to vaccines and at-risk populations will be possible using more powerful computational methods, such as machine learning. The findings from further research in this field will help improve vaccines, market them to a wider audience, and address feelings of vaccine hesitancy in the population. In turn, this will help the public make more informed decisions about their own safety and the safety of their peers.
