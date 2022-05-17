@@ -105,5 +105,5 @@ Our contributions to this project are outlined below:
 - Ziyin Li: `vaers_data_preprocess.jl`, `symptoms_counts_output.csv`, `final_processed_data_output.csv`, `vaers_eda.jl`, `grouped_percentages_output.csv`, `vax_F.png`, `vax_M.png`, `vaers_onsite_preprocess.jl`, `onsite_processed_data_output.csv`, `vaers_onsite_eda.jl`, `onsite_grouped_percentages_output.csv`, `vaers_corr.py`, and `corr_3_one-hot.png`
 
 ### Future Directions
-This study suggests that continuing to research the connection between adverse events and the at risk populations we identified will be possible using more powerful computational methods, such as machine learning. The findings from further research in this field will help improve vaccines, market them to a wider audience, and address feelings of vaccine hesitancy in the population.
+This study suggests that continuing to research the connection between adverse events and the at risk populations we identified will be possible using more powerful computational methods, such as machine learning. The findings from further research in this field will help improve vaccines, market them to a wider audience, and address feelings of vaccine hesitancy in the population. In turn, this will help the public make more informed decisions about their own safety and the safety of their peers.
 
