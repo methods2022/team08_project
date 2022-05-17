@@ -29,14 +29,15 @@ Include write-ups/explanations of the coding files and/or output
 - Input files `2021VAERSVAX.csv`, `2021VAERSSYMPTOMS.csv`, and `2021VAERSDATA.csv`
 - Output files `symptoms_counts_output.csv` and `final_processed_data_output.csv`
 
-*(will add description later)*
+First, VAERS_IDs of the two vaccine manufacturers (**Moderna and Pfizer**) are extracted from `2021VAERSVAX.csv`. After filtering by these VAERS_IDs in `2021VAERSSYMPTOMS.csv`, the total number of occurrences for each symptom (adverse event) is calculated and saved in `symptoms_counts_output.csv`. Then the VAERS_IDs corresponding to the top-3 most frequent symptoms (**headache, fatigue, and pyrexia**) are selected and are used as the key for merging between different data frames gained from the 3 CSV files. In other words, vaccine, symptom and demographic information of the 3 selected symptoms is joined together by matching VAERS_ID. The final processed data output file is called `final_processed_data_output.csv`.
+
 
 2. `project_counts_table.jl`
 
 - Input file `final_processed_data_output.csv`
 - Output file `updated_project_counts.csv`
 
-This Julia script tabulates the data and creates a formatted csv file that allows counts for different combinations of wanted categories. The data must have columns 2, 3, and 6 as adverse events, vaccine, and sex. This file first defines the main() function, which does data importing (defining variables), data cleaning, and plotting. There are three groups of variables to define for adverse events, vaccine, and sex. For each of these, the column, list of categories (reference in dataset), list of labels (reference in output csv file), and number of categories are defined. Then, the data is imported (the input file). The `Dict` (dictionary) is defined to keep track of counts. Running though every row, add for every key in the `Dict`. For every row, the key is taken as the entries found in the column according the column of the categories. The table is created as big as (number of symptoms categories) x (number of vaccine categories) + 2 by (number of adverse effect categories) + 2. The bottom right entries are filled with the counts and the first row is filled with sex categories. The second row is filled with vaccine categories, and the second column is filled with adverse effect categories. The first column on the top row is filled with "Counts" as the title. Finally, the first column, aligned with the middle of the adverse effect, categories column labels. The aforementioned array is saved as the CSV `updated_project_counts.csv` from the constructed table.
+  This Julia script tabulates the data and creates a formatted csv file that allows counts for different combinations of wanted categories. The data must have columns 2, 3, and 6 as adverse events, vaccine, and sex. This file first defines the main() function, which does data importing (defining variables), data cleaning, and plotting. There are three groups of variables to define for adverse events, vaccine, and sex. For each of these, the column, list of categories (reference in dataset), list of labels (reference in output csv file), and number of categories are defined. Then, the data is imported (the input file). The `Dict` (dictionary) is defined to keep track of counts. Running though every row, add for every key in the `Dict`. For every row, the key is taken as the entries found in the column according the column of the categories. The table is created as big as (number of symptoms categories) x (number of vaccine categories) + 2 by (number of adverse effect categories) + 2. The bottom right entries are filled with the counts and the first row is filled with sex categories. The second row is filled with vaccine categories, and the second column is filled with adverse effect categories. The first column on the top row is filled with "Counts" as the title. Finally, the first column, aligned with the middle of the adverse effect, categories column labels. The aforementioned array is saved as the CSV `updated_project_counts.csv` from the constructed table.
 
 3. `vaers_eda.jl`
 
@@ -49,7 +50,7 @@ This Julia script tabulates the data and creates a formatted csv file that allow
 
 4. `vaers_onsite_preprocess.jl`
 
-- Input file `final_processed_data_output.csv`
+- Input files `2021VAERSDATA.csv` and `final_processed_data_output.csv`
 - Output file `onsite_processed_data_output.csv`
 
 *(will add description later)*
@@ -91,7 +92,7 @@ The plots are created as follows:
 - Input file `final_processed_data_output.csv`
 - Output file `corr_3_one-hot.png`
 
-*(will add description later)*
+The three primary factors (**sex, vaccine manufacturer, and symptom**) are selected from the `final_processed_data_output.csv` and are transformed into one-hot encoded features using pandas get_dummies function. Then the correlation matrix of these one-hot encoded features are calculated using the corr function and visualized in the format of heatmap using the seasborn package.
 
 
 ### Contributions
