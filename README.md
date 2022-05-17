@@ -92,7 +92,7 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 
 
 ### Contributions
-Our contributions to this project are outlined below:
+Our contributions to this project are outlined below. We would like to thank all group members for their hard work and dedication.
 
 - Adeline Schwartz:
 - Anusha Kumar: `project_counts_table.jl`, `updated_project_counts.csv`, `numdays_boxplots_scatterplots.jl`, `boxplot.png`, and `scatter.png`
