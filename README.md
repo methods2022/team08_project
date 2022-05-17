@@ -35,8 +35,16 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 - Output file `updated_project_counts.csv`
 
   This Julia script tabulates the data and creates a formatted csv file that allows counts for different combinations of wanted categories. The data must have columns 2, 3, and 6 as adverse events, vaccine, and sex. This file first defines the main() function, which does data importing (defining variables), data cleaning, and plotting. There are three groups of variables to define for adverse events, vaccine, and sex. For each of these, the column, list of categories (reference in dataset), list of labels (reference in output csv file), and number of categories are defined. Then, the data is imported (the input file). The `Dict` (dictionary) is defined to keep track of counts. For every row, the key is taken as the entries found in the column according the column of the categories. The aforementioned array is saved as the CSV `updated_project_counts.csv` from the constructed table.
+  
+  
+3. `numdays_boxplots_scatterplots.jl`
 
-3. `vaers_eda.jl`
+- Input file `onsite_processed_data_output.csv`
+- Output files `boxplot.png` and `scatter.png`
+
+  This Julia script constructs boxplots and scatter plots. These plots display a sample over onset days vs age (in years). Columns 1, 3, 5, 6, and 9 are used (id, vaccine, age, sex, and onset days). The id column **must be unique** to each subject. The helper function is defined: `is_valid_numerical` and `main` routine. The `main` function (for data importing, data cleaning, and plotting) is defined and run. The data is imported (the input file). The plot options and coding are defined; labels for the plot are defined to map the name of the sex and vaccine. The plots are saved as box plots and scatter plots with the customs plotting function, `make_plot`. The rows are discarded so every row has an unique id. The data was parsed row wise. A valid data row would have non-empty entries for age, onset, sex, vaccine. Vaccine and sex had to have a key in one of the codings. Invalid rows would be discarded.
+
+4. `vaers_eda.jl`
 
 - Input file `final_processed_data_output.csv`
 - Output file `grouped_percentages_output.csv` and bar plots (`vax_F.png` and `vax_M.png`)
@@ -45,14 +53,14 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 
 **(please feel free to insert your scripts at the appropriate position and change the order number)**
 
-4. `vaers_onsite_preprocess.jl`
+5. `vaers_onsite_preprocess.jl`
 
 - Input files `2021VAERSDATA.csv` and `final_processed_data_output.csv`
 - Output file `onsite_processed_data_output.csv`
 
   *(will add description later)*
 
-5. `vaers_onsite_eda.jl`
+6. `vaers_onsite_eda.jl`
 
 - Input file `onsite_processed_data_output.csv`
 - Output file `onsite_grouped_percentages_output.csv`
@@ -60,13 +68,6 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
   *(will add description later)*
 
 **(please feel free to insert your scripts at the appropriate position and change the order number)**
-
-6. `numdays_boxplots_scatterplots.jl`
-
-- Input file `onsite_processed_data_output.csv`
-- Output files `boxplot.png` and `scatter.png`
-
-  This Julia script constructs boxplots and scatter plots. These plots display a sample over onset days vs age (in years). Columns 1, 3, 5, 6, and 9 are used (id, vaccine, age, sex, and onset days). The id column **must be unique** to each subject. The helper function is defined: `is_valid_numerical` and `main` routine. The `main` function (for data importing, data cleaning, and plotting) is defined and run. The data is imported (the input file). The plot options and coding are defined; labels for the plot are defined to map the name of the sex and vaccine. The plots are saved as box plots and scatter plots with the customs plotting function, `make_plot`. The rows are discarded so every row has an unique id. The data was parsed row wise. A valid data row would have non-empty entries for age, onset, sex, vaccine. Vaccine and sex had to have a key in one of the codings. Invalid rows would be discarded.
 
 7. `at_risk_group_plots.jl`
 
