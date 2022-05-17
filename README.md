@@ -29,7 +29,7 @@ Include write-ups/explanations of the coding files and/or output
 - Input files `2021VAERSVAX.csv`, `2021VAERSSYMPTOMS.csv`, and `2021VAERSDATA.csv`
 - Output files `symptoms_counts_output.csv` and `final_processed_data_output.csv`
 
-First, VAERS_IDs of the two vaccine manufacturers (**Moderna and Pfizer**) are extracted from `2021VAERSVAX.csv`. After filtering by these VAERS_IDs in `2021VAERSSYMPTOMS.csv`, the total number of occurrences for each symptom (adverse event) is calculated and saved in `symptoms_counts_output.csv`. Then the VAERS_IDs corresponding to the top-3 most frequent symptoms (**headache, fatigue, and pyrexia**) are selected and are used as the key for merging between different data frames gained from the 3 CSV files. In other words, vaccine, symptom and demographic information of the 3 selected symptoms is joined together by matching VAERS_ID. The final processed data output file is called `final_processed_data_output.csv`.
+  First, VAERS_IDs of the two vaccine manufacturers (**Moderna and Pfizer**) are extracted from `2021VAERSVAX.csv`. After filtering by these VAERS_IDs in `2021VAERSSYMPTOMS.csv`, the total number of occurrences for each symptom (adverse event) is calculated and saved in `symptoms_counts_output.csv`. Then the VAERS_IDs corresponding to the top-3 most frequent symptoms (**headache, fatigue, and pyrexia**) are selected and are used as the key for merging between different data frames gained from the 3 CSV files. In other words, vaccine, symptom and demographic information of the 3 selected symptoms is joined together by matching VAERS_ID. The final processed data output file is called `final_processed_data_output.csv`.
 
 
 2. `project_counts_table.jl`
@@ -44,7 +44,7 @@ First, VAERS_IDs of the two vaccine manufacturers (**Moderna and Pfizer**) are e
 - Input file `final_processed_data_output.csv`
 - Output file `grouped_percentages_output.csv` and bar plots (`vax_F.png` and `vax_M.png`)
 
-*(will add description later)*
+  *(will add description later)*
 
 **(please feel free to insert your scripts at the appropriate position and change the order number)**
 
@@ -53,14 +53,14 @@ First, VAERS_IDs of the two vaccine manufacturers (**Moderna and Pfizer**) are e
 - Input files `2021VAERSDATA.csv` and `final_processed_data_output.csv`
 - Output file `onsite_processed_data_output.csv`
 
-*(will add description later)*
+  *(will add description later)*
 
 5. `vaers_onsite_eda.jl`
 
 - Input file `onsite_processed_data_output.csv`
 - Output file `onsite_grouped_percentages_output.csv`
 
-*(will add description later)*
+  *(will add description later)*
 
 **(please feel free to insert your scripts at the appropriate position and change the order number)**
 
@@ -69,13 +69,13 @@ First, VAERS_IDs of the two vaccine manufacturers (**Moderna and Pfizer**) are e
 - Input file `onsite_processed_data_output.csv`
 - Output files `boxplot.png` and `scatter.png`
 
-This Julia script constructs two plots: boxplot and scatter plot. Both plots display a sample over onset days vs age (in years). Columns 1, 3, 5, 6, and 9 are used (id, vaccine, age, sex, and onset days). The id column **must be unique** to each subject. The helper function is defined: `is_valid_numerical` and `main` routine. The `main` function (for data importing, data cleaning, and plotting) is defined and run. The data is imported (the input file). The delimiter is set to "," and the data is imported into a vector of rows, with the header turned on. The plot options and coding are defined; labels for the plot are defined to map the name of the sex and vaccine. The same is done for the shapes and color of the categories, and the plot alpha (transparency) is set. The plots are saved as box plots and scatter plots with the customs plotting function, `make_plot`. 
+  This Julia script constructs two plots: boxplot and scatter plot. Both plots display a sample over onset days vs age (in years). Columns 1, 3, 5, 6, and 9 are used (id, vaccine, age, sex, and onset days). The id column **must be unique** to each subject. The helper function is defined: `is_valid_numerical` and `main` routine. The `main` function (for data importing, data cleaning, and plotting) is defined and run. The data is imported (the input file). The delimiter is set to "," and the data is imported into a vector of rows, with the header turned on. The plot options and coding are defined; labels for the plot are defined to map the name of the sex and vaccine. The same is done for the shapes and color of the categories, and the plot alpha (transparency) is set. The plots are saved as box plots and scatter plots with the customs plotting function, `make_plot`. 
 
-The rows are discarded so every row has an unique id. The data was parsed row wise. A valid data row would have non-empty entries for age, onset, sex, vaccine. Vaccine and sex had to have a key in one of the codings. Invalid rows would be discarded.
+  The rows are discarded so every row has an unique id. The data was parsed row wise. A valid data row would have non-empty entries for age, onset, sex, vaccine. Vaccine and sex had to have a key in one of the codings. Invalid rows would be discarded.
 
-`make_plot(plotfunc, plot_file, plot_title; pltopts...)` does the main job of plotting. First, it makes an array of plots to store the subplots to be created. It then goes through every combination of sex and vaccine and does the following. (For example, "Female" and "Pfizer" would be a combination.) Going through the data, the row that matches the given combination of sex and vaccine are taken. The filtered ages and onset days are seperated in two separate vectors of data. The color, and (marker) shape are set according to plot options. The plot title is set according the given combination of categories. Using `plotfunc` (which is `boxplot` or `scatter` in this case), the plot is constructed. The x-axis is set to "Onset Days", x axis ticks are set to be on every day, and the y-axis is set to "Age". The working plot is added to the plot vector. Using `savefig`, the plots  in the vector of plots are saved as a plot array in an image file called `plot_file`.
+  `make_plot(plotfunc, plot_file, plot_title; pltopts...)` does the main job of plotting. First, it makes an array of plots to store the subplots to be created. It then goes through every combination of sex and vaccine and does the following. (For example, "Female" and "Pfizer" would be a combination.) Going through the data, the row that matches the given combination of sex and vaccine are taken. The filtered ages and onset days are seperated in two separate vectors of data. The color, and (marker) shape are set according to plot options. The plot title is set according the given combination of categories. Using `plotfunc` (which is `boxplot` or `scatter` in this case), the plot is constructed. The x-axis is set to "Onset Days", x axis ticks are set to be on every day, and the y-axis is set to "Age". The working plot is added to the plot vector. Using `savefig`, the plots  in the vector of plots are saved as a plot array in an image file called `plot_file`.
 
-The plots are created as follows:
+  The plots are created as follows:
 
 ```julia
     make_plot(boxplot, "boxplot.png", "Boxplot"; outliers=false)
@@ -92,7 +92,7 @@ The plots are created as follows:
 - Input file `final_processed_data_output.csv`
 - Output file `corr_3_one-hot.png`
 
-The three primary factors (**sex, vaccine manufacturer, and symptom**) are selected from the `final_processed_data_output.csv` and are transformed into one-hot encoded features using pandas get_dummies function. Then the correlation matrix of these one-hot encoded features are calculated using the corr function and visualized in the format of heatmap using the seasborn package.
+  The three primary factors (**sex, vaccine manufacturer, and symptom**) are selected from the `final_processed_data_output.csv` and are transformed into one-hot encoded features using pandas get_dummies function. Then the correlation matrix of these one-hot encoded features are calculated using the corr function and visualized in the format of heatmap using the seasborn package.
 
 
 ### Contributions
