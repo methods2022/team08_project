@@ -18,9 +18,9 @@ function main()
 
     # Open input and output files
     input_file = open("/gpfs/data/biol1555/projects2022/team08/onsite_processed_data_output_1.csv", "r")  
-    output_file_all_values = open("cthropp_dictionary_output_onset.txt", "w")
-    output_file_min_max = open("cthropp_min_max_output_onset.txt", "w")  
-    output_file_mean = open("cthropp_mean_output_onset.txt", "w")
+    output_file_all_values = open("onset_dictionary_output.txt", "w")
+    output_file_min_max = open("onset_min_max_output.txt", "w")  
+    output_file_mean = open("onset_mean_output.txt", "w")
 
 
     # Create dctionaries to count onsets in each at-risk group
