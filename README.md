@@ -21,6 +21,8 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 
 ### Code Files/Descriptions
 
+#### Primary Analysis
+
 1. `vaers_data_preprocess.jl` 
 
 - Input files `2021VAERSVAX.csv`, `2021VAERSSYMPTOMS.csv`, and `2021VAERSDATA.csv`
@@ -36,13 +38,11 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 
   This Julia script tabulates the data and creates a formatted csv file that allows counts for different combinations of wanted categories. The data must have columns 2, 3, and 6 as adverse events, vaccine, and sex. This file first defines the main() function, which does data importing (defining variables), data cleaning, and plotting. There are three groups of variables to define for adverse events, vaccine, and sex. For each of these, the column, list of categories (reference in dataset), list of labels (reference in output csv file), and number of categories are defined. Then, the data is imported (the input file). The `Dict` (dictionary) is defined to keep track of counts. For every row, the key is taken as the entries found in the column according the column of the categories. The aforementioned array is saved as the CSV `updated_project_counts.csv` from the constructed table.
   
-  
-3. `numdays_boxplots_scatterplots.jl`
 
-- Input file `onsite_processed_data_output.csv`
-- Output files `boxplot.png` and `scatter.png`
+3. (Addie's code for counts visualizations)
 
-  This Julia script constructs 4 boxplots and 4 scatterplots. These plots display a sample over onset days vs age (in years). Columns 1, 3, 5, 6, and 9 are used (id, vaccine, age, sex, and onset days). The id column **must be unique** to each subject. The helper function is defined: `is_valid_numerical` and `main` routine. The `main` function (for data importing, data cleaning, and plotting) is defined and run. The data is imported (the input file). The plot options and coding are defined; labels for the plot are defined to map the name of the sex and vaccine. The plots are saved as boxplots and scatterplots with the customs plotting function, `make_plot`. The rows are discarded so every row has an unique id. The data was parsed row wise. A valid data row would have non-empty entries for age, onset, sex, vaccine. Vaccine and sex had to have a key in one of the codings. Invalid rows would be discarded.
+  **(please feel free to change the order numbers if you have more than one script to insert here)**
+
 
 4. `vaers_eda.jl`
 
@@ -51,44 +51,69 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 
   *(will add description later)*
 
-**(please feel free to insert your scripts at the appropriate position and change the order number)**
+5. (Connor's code for descriptive analysis on age)
 
-5. `vaers_onsite_preprocess.jl`
+  **(please feel free to change the order numbers if you have more than one script to insert here)**
+
+
+6. `at_risk_group_plots.jl`
+
+- Input file `final_processed_data_output.csv`
+- Output files `fatigue_at_risk_plot.png`, `headache_at_risk_plot.png`, `pyrexia_at_risk_plot.png`
+
+  This Julia script constructs 6 histograms from the preprocessed data (input file). Each output file contains 2 histograms and focuses on the ages of people who reported experiencing the top three most frequently observed adverse event symptoms. One of the histograms in each symptom-specific file shows the age distribution of everyone who reported that symptom, while the other histogram shows the age distribution of everyone who reported that symptom ***and*** is a member of the at-risk population that we identified for that symptom. The plots and output files are created in the function `atriskplots()` which is called in the Julia script; therefore, running the Julia script will produce all outputs.
+
+
+7. `vaers_corr.py`
+
+- Input file `final_processed_data_output.csv`
+- Output file `corr_3_one-hot.png`
+
+  The three primary factors (**sex, vaccine manufacturer, and symptom**) are selected from the `final_processed_data_output.csv` and are transformed into one-hot encoded features using pandas get_dummies function. Then the correlation matrix of these one-hot encoded features are calculated using the corr function and visualized in the format of heatmap using the seasborn package.
+
+
+#### Extended Analysis - Onsite Interval
+
+1. `vaers_onsite_preprocess.jl`
 
 - Input files `2021VAERSDATA.csv` and `final_processed_data_output.csv`
 - Output file `onsite_processed_data_output.csv`
 
   *(will add description later)*
 
-6. `vaers_onsite_eda.jl`
+
+2. `vaers_onsite_eda.jl`
 
 - Input file `onsite_processed_data_output.csv`
 - Output file `onsite_grouped_percentages_output.csv`
 
   *(will add description later)*
 
-**(please feel free to insert your scripts at the appropriate position and change the order number)**
-
-7. `at_risk_group_plots.jl`
-
-- Input file `final_processed_data_output.csv`
-- Output files `fatigue_at_risk_plot.png`, `headache_at_risk_plot.png`, `pyrexia_at_risk_plot.png`
-
-  This Julia script constructs 6 histograms from the preprocessed data (input file). Each output file contains 2 histograms and focuses on the ages of people who reported experiencing the top three most frequently observed adverse event symptoms. One of the histograms in each symptom-specific file shows the age distribution of everyone who reported that symptom, while the other histogram shows the age distribution of everyone who reported that symptom ***and*** is a member of the at-risk population that we identified for that symptom. The plots and output files are created in the function `atriskplots()` which is called in the Julia script; therefore, running the Julia script will produce all outputs.
   
- 8. `onset_time_visualizations.jl`
+3. (Addie's code for counts and percentages visualizations)
+
+  **(please feel free to change the order numbers if you have more than one script to insert here)**
+
+
+4. `onset_time_visualizations.jl`
  
- - Input file `onsite_processed_data_output.csv`
- - Output file `onset_time_v_sex_and_manu.png`
+- Input file `onsite_processed_data_output.csv`
+- Output file `onset_time_v_sex_and_manu.png`
 
-   This Julia script constructs boxplots from the preprocessed data file that contains onset time intervals. In the first boxplot, sex is compared to onset time intervals, and in the second boxplot, vaccine manufacturer is compared to onset time intervals. Both boxplots are included in the same output file, which is created in the function `main()`, which is called in the Julia script. Running the Julia script will automatically produce the output.
+  This Julia script constructs boxplots from the preprocessed data file that contains onset time intervals. In the first boxplot, sex is compared to onset time intervals, and in the second boxplot, vaccine manufacturer is compared to onset time intervals. Both boxplots are included in the same output file, which is created in the function `main()`, which is called in the Julia script. Running the Julia script will automatically produce the output.
 
-(last) `vaers_corr.py`
 
-- Input file `final_processed_data_output.csv`
-- Output file `corr_3_one-hot.png`
+5. (Connor's code for descriptive analysis on age)
 
-  The three primary factors (**sex, vaccine manufacturer, and symptom**) are selected from the `final_processed_data_output.csv` and are transformed into one-hot encoded features using pandas get_dummies function. Then the correlation matrix of these one-hot encoded features are calculated using the corr function and visualized in the format of heatmap using the seasborn package.
+  **(please feel free to change the order numbers if you have more than one script to insert here)**
+
+
+6. `numdays_boxplots_scatterplots.jl`
+
+- Input file `onsite_processed_data_output.csv`
+- Output files `boxplot.png` and `scatter.png`
+
+  This Julia script constructs 4 boxplots and 4 scatterplots. These plots display a sample over onset days vs age (in years). Columns 1, 3, 5, 6, and 9 are used (id, vaccine, age, sex, and onset days). The id column **must be unique** to each subject. The helper function is defined: `is_valid_numerical` and `main` routine. The `main` function (for data importing, data cleaning, and plotting) is defined and run. The data is imported (the input file). The plot options and coding are defined; labels for the plot are defined to map the name of the sex and vaccine. The plots are saved as boxplots and scatterplots with the customs plotting function, `make_plot`. The rows are discarded so every row has an unique id. The data was parsed row wise. A valid data row would have non-empty entries for age, onset, sex, vaccine. Vaccine and sex had to have a key in one of the codings. Invalid rows would be discarded.
 
 
 ### Contributions
