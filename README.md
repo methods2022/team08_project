@@ -52,13 +52,14 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
   The final processed data CSV file is loaded back into a dataframe and rows with unknown sex information are dropped. Then the counts of each sex-vaccine_manufacturer-symptom group are derived using groupby and combine. The sum of counts of symptoms for each sex-vaccine_manufacturer group is derived similarly. Afterwards, the percentages of symptoms are calculated by dividing the counts of each sex-vaccine_manufacturer-symptom group by the counts of corresponding sex-vaccine_manufacturer group. Finally, the percentages of symptoms for each vaccine manufacturer for females and males are plotted separately by sex in the format of barplot to identify the most at-risk populations in an intrinsic and straightforward way.
 
 
-5. (Connor's code for descriptive analysis on age)
+5. `age_statistics.jl`
+- Input file `final_processed_data_output.csv`
+- Output files `age_dictionary_output.txt`, `age_output_min_max.txt`, `mean_age_output.txt`
 
-  **(please feel free to change the order numbers if you have more than one script to insert here)**
+    This Julia script is designed to create separate dictionaries for each of the 12 at-risk groups and record the ages of reporting individuals who meet the criteria for each dictionary.  At-risk groups are defined by sex, vaccine manufacturer, and reported adverse symptoms.  For this project, we are only looking at the vaccines manufactured by Pfizer and Moderna, and we are only looking at the top three most reported adverse events, which are fatigue, headache, and pyrexia.  Once the dictionaries are created, this script will read the input file line-by-line to determine what dictionary, if any, the individual fits into.  If the individual meets the criteria for that dictionary, the individual's age is added to that dictionary.  This process repeats until all lines of the input file have been read into the script.  Once this has ended, the script will output the entire contents of each dictionary into a text file, `age_dictionary_output.txt`.  Then, the statistics package is called upon to determine the minimum and maximum age in each of the dictionaries.  The results are printed on a text file, `age_output_min_max.txt`.  Finally, the script will compute the mean age in each of the dictionaries by using the keys and counts in the dictionaries.  The results are printed on a text file, `mean_age_output.txt`.  
 
 
 6. `at_risk_group_plots.jl`
-
 - Input file `final_processed_data_output.csv`
 - Output files `fatigue_at_risk_plot.png`, `headache_at_risk_plot.png`, `pyrexia_at_risk_plot.png`
 
@@ -104,10 +105,11 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
   This Julia script constructs boxplots from the preprocessed data file that contains onset time intervals. In the first boxplot, sex is compared to onset time intervals, and in the second boxplot, vaccine manufacturer is compared to onset time intervals. Both boxplots are included in the same output file, which is created in the function `main()`, which is called in the Julia script. Running the Julia script will automatically produce the output.
 
 
-5. (Connor's code for descriptive analysis on age)
+5. `onset_statistics.jl`
+- Input file `onsite_processed_data_output_1.csv`
+- Output files `onset_dictionary_output.txt`, `onset_min_max_output.txt`, `onset_mean_output.txt`
 
-  **(please feel free to change the order numbers if you have more than one script to insert here)**
-
+  This Julia script is designed to create separate dictionaries for each of the 12 at-risk groups and record the onset interval of reporting individuals who meet the criteria for each dictionary.  At-risk groups are defined by sex, vaccine manufacturer, and reported adverse symptoms.  For this project, we are only looking at the vaccines manufactured by Pfizer and Moderna, and we are only looking at the top three most reported adverse events, which are fatigue, headache, and pyrexia.  The onset interval is the number of days between vaccination and start of the adverse event.  In the input file, the onset interval is named “NUMDAYS”.  Once the dictionaries are created, this script will read the input file line-by-line to determine what dictionary, if any, the individual fits into.  If the individual meets the criteria for that dictionary, the individual's onset interval is added to that dictionary.  This process repeats until all lines of the input file have been read into the script.  Once this has ended, the script will output the entire contents of each dictionary into a text file, `onset_dictionary_output.txt`.  Then, the statistics package is called upon to determine the minimum and maximum onset interval in each of the dictionaries.  The results are printed on a text file, `onset_min_max_output.txt`.  Finally, the script will compute the mean onset interval in each of the dictionaries by using the keys and counts in the dictionaries.  The results are printed on a text file, `onset_mean_output.txt`.  
 
 6. `numdays_boxplots_scatterplots.jl`
 
@@ -122,7 +124,7 @@ We would like to thank all group members for their hard work and dedication. Our
 
 - Adeline Schwartz:
 - Anusha Kumar: `project_counts_table.jl`, `updated_project_counts.csv`, `numdays_boxplots_scatterplots.jl`, `boxplot.png`, and `scatter.png`
-- Connor Thropp:
+- Connor Thropp:`onset_dictionary_output.txt`, `onset_min_max_output.txt`, `onset_mean_output.txt`, `age_dictionary_output.txt`, `age_output_min_max.txt`, `mean_age_output.txt`, `age_statistics.jl`, `onset_statistics.jl`
 - Lindsey Ross: `at_risk_group_plots.jl`, `fatigue_at_risk_plot.png`, `headache_at_risk_plot.png`, `pyrexia_at_risk_plot.png`, `onset_time_visualizations.jl`, `onset_time_v_sex_and_manu.png`
 - Ziyin Li: `vaers_data_preprocess.jl`, `symptoms_counts_output.csv`, `final_processed_data_output.csv`, `vaers_eda.jl`, `grouped_percentages_output.csv`, `vax_F.png`, `vax_M.png`, `vaers_onsite_preprocess.jl`, `onsite_processed_data_output.csv`, `vaers_onsite_eda.jl`, `onsite_grouped_percentages_output.csv`, `vaers_corr.py`, and `corr_3_one-hot.png`
 
