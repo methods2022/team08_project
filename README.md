@@ -49,7 +49,7 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 - Input file `final_processed_data_output.csv`
 - Output file `grouped_percentages_output.csv` and barplots (`vax_F.png` and `vax_M.png`)
 
-  The final processed data CSV file is loaded back into a dataframe and rows with unknown sex information are dropped. Then the counts of each sex-vaccine_manufacturer-symptom group are derived using groupby and combine. The sum of counts of symptoms for each sex-vaccine_manufacturers group is derived similarly. Afterwards, the percentages of symptoms are calculated by dividing the counts of each sex-vaccine_manufacturer-symptom group by the counts of corresponding sex-vaccine_manufacturers group. Finally, the percentages of symptoms for each vaccine manufacturer for females and males, respectively are plotted in the format of barplot to identify the most at-risk populations for each symptom in an intrinsic and straightforward way.
+  The final processed data CSV file is loaded back into a dataframe and rows with unknown sex information are dropped. Then the counts of each sex-vaccine_manufacturer-symptom group are derived using groupby and combine. The sum of counts of symptoms for each sex-vaccine_manufacturer group is derived similarly. Afterwards, the percentages of symptoms are calculated by dividing the counts of each sex-vaccine_manufacturer-symptom group by the counts of corresponding sex-vaccine_manufacturer group. Finally, the percentages of symptoms for each vaccine manufacturer for females and males are plotted separately by sex in the format of barplot to identify the most at-risk populations in an intrinsic and straightforward way.
 
 
 5. (Connor's code for descriptive analysis on age)
@@ -88,7 +88,7 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 - Input file `onsite_processed_data_output.csv`
 - Output file `onsite_grouped_percentages_output.csv`
 
-  Since most of the onsite intervals lied in the range of 0 to 2 days, the input processed data is filtered for onsite interval no greater than 2 days in the first place. Then the similar process is conducted for calculating counts and percentages of adverse events for each sex-onsite_interval group as what has been done in the primary analysis. The output counts and the percentafes are saved in `onsite_grouped_percentages_output.csv`.
+  Since most of the onsite intervals lie in the range of 0 to 2 days, the input processed data is filtered for onsite interval no greater than 2 days in the first place. Then the similar process is conducted for calculating counts and percentages of adverse events for each sex-onsite_interval group as what has been done in the primary analysis. The output counts and percentages are saved in `onsite_grouped_percentages_output.csv`.
 
   
 3. (Addie's code for counts and percentages visualizations)
