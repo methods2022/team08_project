@@ -12,9 +12,9 @@ function main()
 
     # Open input and output files
     input_file = open("/gpfs/data/biol1555/projects2022/team08/final_processed_data_output.csv", "r")  
-    output_file_all_values = open("/gpfs/data/biol1555/projects2022/team08/dictionary_results_all_values.txt", "w")
-    output_file_min_max = open("/gpfs/data/biol1555/projects2022/team08/min_max.txt", "w")  
-    output_file_mean = open("/gpfs/data/biol1555/projects2022/team08/mean.txt", "w")
+    output_file_all_values = open("age_dictionary_output.txt", "w")
+    output_file_min_max = open("age_output_min_max.txt", "w")  
+    output_file_mean = open("mean_age_output.txt", "w")
 
 
     # Create dctionaries to count ages in each group
