@@ -39,12 +39,7 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
   This Julia script tabulates the data and creates a formatted csv file that allows counts for different combinations of wanted categories. The data must have columns 2, 3, and 6 as adverse events, vaccine, and sex. This file first defines the main() function, which does data importing (defining variables), data cleaning, and plotting. There are three groups of variables to define for adverse events, vaccine, and sex. For each of these, the column, list of categories (reference in dataset), list of labels (reference in output csv file), and number of categories are defined. Then, the data is imported (the input file). The `Dict` (dictionary) is defined to keep track of counts. For every row, the key is taken as the entries found in the column according the column of the categories. The aforementioned array is saved as the CSV `updated_project_counts.csv` from the constructed table.
   
 
-3. (Addie's code for counts visualizations)
-
-  **(please feel free to change the order numbers if you have more than one script to insert here)**
-
-
-4. `vaers_eda.jl`
+3. `vaers_eda.jl`
 
 - Input file `final_processed_data_output.csv`
 - Output file `grouped_percentages_output.csv` and barplots (`vax_F.png` and `vax_M.png`)
@@ -52,6 +47,14 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
   The final processed data CSV file is loaded back into a dataframe and rows with unknown sex information are dropped. Then the counts of each sex-vaccine_manufacturer-symptom group are derived using groupby and combine. The sum of counts of symptoms for each sex-vaccine_manufacturer group is derived similarly. Afterwards, the percentages of symptoms are calculated by dividing the counts of each sex-vaccine_manufacturer-symptom group by the counts of corresponding sex-vaccine_manufacturer group. Finally, the percentages of symptoms for each vaccine manufacturer for females and males are plotted separately by sex in the format of barplot to identify the most at-risk populations in an intrinsic and straightforward way.
 
 
+4. `bar_plots.jl`
+
+- Data inputted manually from `updated_projects_counts.csv` and `grouped_percentages_output.csv`
+- Output files: barplots (`Fatigue.png`, `FatiguePercents.png`, `Headache.png`, `HeadachePercents.png`, `Pyrexia.png`, `PyrexiaPercents.png`)
+
+  This Julia script constructs two grouped barplots for each adverse event based on sex and vaccine manufacturer (six barplots total). It first creates a barplot using counts and then one using percents for each adverse event. 
+  
+  
 5. `age_statistics.jl`
 - Input file `final_processed_data_output.csv`
 - Output files `age_dictionary_output.txt`, `age_output_min_max.txt`, `mean_age_output.txt`
@@ -92,9 +95,12 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
   Since most of the onsite intervals lie in the range of 0 to 2 days, the input processed data is filtered for onsite interval no greater than 2 days in the first place. Then the similar process is conducted for calculating counts and percentages of adverse events for each sex-onsite_interval group as what has been done in the primary analysis. The output counts and percentages are saved in `onsite_grouped_percentages_output.csv`.
 
   
-3. (Addie's code for counts and percentages visualizations)
+3. `bar_plots_onsetdata.jl`
 
-  **(please feel free to change the order numbers if you have more than one script to insert here)**
+- Data inputted manually from `onsite_grouped_percentages_output.csv`
+- Output files: barplots (`Fatigue_Onset.png`, `Fatigue_Onset_Percents.png`, `Fatigue_Onset_Vaccine.png`, `Fatigue_Onset_Vaccine_Percents.png`, `Headache_Onset.png`, `Headache_Onset_Percents.png`, `Headache_Onset_Vaccine.png`, `Headache_Onset_Vaccine_Percents.png`, `Pyrexia_Onset.png`, `Pyrexia_Onset_Percents.png`, `Pyrexia_Onset_Vaccine.png`, `Pyrexia_Onset_Vaccine_Percents.png`)
+  
+  This Julia script constructs four grouped barplots for the onset interval data for each adverse event (twelve barplots total). The code first creates barplots for each adverse event using counts and percentages based on sex, and then creates barplots using counts and percentages based on vaccine manufacturer. For all barplots, data is sourced from the output file noted above. 
 
 
 4. `onset_time_visualizations.jl`
@@ -122,7 +128,7 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 ### Contributions
 We would like to thank all group members for their hard work and dedication. Our contributions to this project are outlined below:
 
-- Adeline Schwartz:
+- Adeline Schwartz: `bar_plots.jl`, `Fatigue.png`, `FatiguePercents.png`, `Headache.png`, `HeadachePercents.png`, `Pyrexia.png`, `PyrexiaPercents.png`, `bar_plots_onsetdata.jl`, `Fatigue_Onset.png`, `Fatigue_Onset_Percents.png`, `Fatigue_Onset_Vaccine.png`, `Fatigue_Onset_Vaccine_Percents.png`, `Headache_Onset.png`, `Headache_Onset_Percents.png`, `Headache_Onset_Vaccine.png`, `Headache_Onset_Vaccine_Percents.png`, `Pyrexia_Onset.png`, `Pyrexia_Onset_Percents.png`, `Pyrexia_Onset_Vaccine.png`, `Pyrexia_Onset_Vaccine_Percents.png`
 - Anusha Kumar: `project_counts_table.jl`, `updated_project_counts.csv`, `numdays_boxplots_scatterplots.jl`, `boxplot.png`, and `scatter.png`
 - Connor Thropp:`onset_dictionary_output.txt`, `onset_min_max_output.txt`, `onset_mean_output.txt`, `age_dictionary_output.txt`, `age_output_min_max.txt`, `mean_age_output.txt`, `age_statistics.jl`, `onset_statistics.jl`
 - Lindsey Ross: `at_risk_group_plots.jl`, `fatigue_at_risk_plot.png`, `headache_at_risk_plot.png`, `pyrexia_at_risk_plot.png`, `onset_time_visualizations.jl`, `onset_time_v_sex_and_manu.png`
