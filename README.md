@@ -50,9 +50,9 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 4. `bar_plots.jl`
 
 - Data inputted manually from `updated_projects_counts.csv` and `grouped_percentages_output.csv`
-- Output files: barplots (`Fatigue.png`, `FatiguePercents.png`, `Headache.png`, `HeadachePercents.png`, `Pyrexia.png`, `PyrexiaPercents.png`)
+- Output files: barplots (`Fatigue.png`, `FatiguePercents.png`, `Headache.png`, `HeadachePercents.png`, `Total.png`, `Pyrexia.png`, `PyrexiaPercents.png`)
 
-  This Julia script constructs two grouped barplots for each adverse event based on sex and vaccine manufacturer (six barplots total). It first creates a barplot using counts and then one using percents for each adverse event. 
+  This Julia script constructs two grouped barplots for each adverse event based on sex and vaccine manufacturer. It also creates one bar plot that shows the total counts of all adverse events based on sex and vaccine manufacturer (seven barplots total). It first creates a barplot using counts and then one using percents for each adverse event. 
   
   
 5. `age_statistics.jl`
@@ -134,7 +134,7 @@ This repository contains code used to analyze data from VAERS (Vaccine Adverse E
 ### Contributions
 We would like to thank all group members for their hard work and dedication. Our contributions to this project are outlined below:
 
-- Adeline Schwartz: `bar_plots.jl`, `Fatigue.png`, `FatiguePercents.png`, `Headache.png`, `HeadachePercents.png`, `Pyrexia.png`, `PyrexiaPercents.png`, `bar_plots_onsetdata.jl`, `Fatigue_Onset.png`, `Fatigue_Onset_Percents.png`, `Fatigue_Onset_Vaccine.png`, `Fatigue_Onset_Vaccine_Percents.png`, `Headache_Onset.png`, `Headache_Onset_Percents.png`, `Headache_Onset_Vaccine.png`, `Headache_Onset_Vaccine_Percents.png`, `Pyrexia_Onset.png`, `Pyrexia_Onset_Percents.png`, `Pyrexia_Onset_Vaccine.png`, `Pyrexia_Onset_Vaccine_Percents.png`
+- Adeline Schwartz: `bar_plots.jl`, `Fatigue.png`, `FatiguePercents.png`, `Headache.png`, `HeadachePercents.png`, `Pyrexia.png`, `PyrexiaPercents.png`, `Total.png`, `bar_plots_onsetdata.jl`, `Fatigue_Onset.png`, `Fatigue_Onset_Percents.png`, `Fatigue_Onset_Vaccine.png`, `Fatigue_Onset_Vaccine_Percents.png`, `Headache_Onset.png`, `Headache_Onset_Percents.png`, `Headache_Onset_Vaccine.png`, `Headache_Onset_Vaccine_Percents.png`, `Pyrexia_Onset.png`, `Pyrexia_Onset_Percents.png`, `Pyrexia_Onset_Vaccine.png`, `Pyrexia_Onset_Vaccine_Percents.png`
 - Anusha Kumar: `project_counts_table.jl`, `updated_project_counts.csv`, `numdays_boxplots_scatterplots.jl`, `boxplot.png`, `scatter.png`
 - Connor Thropp:`onset_dictionary_output.txt`, `onset_min_max_output.txt`, `onset_mean_output.txt`, `age_dictionary_output.txt`, `age_output_min_max.txt`, `mean_age_output.txt`, `age_statistics.jl`, `onset_statistics.jl`
 - Lindsey Ross: `at_risk_group_plots.jl`, `fatigue_at_risk_plot.png`, `headache_at_risk_plot.png`, `pyrexia_at_risk_plot.png`, `onset_time_visualizations.jl`, `onset_time_v_sex_and_manu.png`
